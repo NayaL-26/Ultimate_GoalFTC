@@ -230,4 +230,10 @@ public void stopMotors(){
         backLeft.setPower(0);
         backRight.setPower(0);
 }
+
+    public void run(){
+    intihardware();
+    chooseprogram();
 }
+}
+
