@@ -9,6 +9,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 //import java.security.PublicKey;
 
 //Here we are registering the name
+
 @Autonomous(name="DemoAuto", group = "Demo")
 public class DemoAuto extends LinearOpMode {
 //Here we are declaring the motors and sensors
@@ -59,8 +60,6 @@ public class DemoAuto extends LinearOpMode {
     private double gearRatio = 1.0;
     //The circumference of the drive wheel.
     private double wheelCircumference = 31.9024; // ??
-    //Formula to calculate ticks per centimeter for the current drive set up.FORWARDS/BACKWARD ONLY
-    private double ticksPerCm = (ticksPerRevNR40 * gearRatio) / wheelCircumference;
     //Formula to calculate ticks per centimeter for the current drive set up.SIDEWAYS
 
 
@@ -79,7 +78,7 @@ public class DemoAuto extends LinearOpMode {
         forward(60, .5);
         sideRight(30, .5);
         forward(45,.5);
-        break;
+      break;
     }
 
     }
@@ -183,6 +182,8 @@ public class DemoAuto extends LinearOpMode {
     public void forward(double targetDistance, double power){
         setDriveMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         setDriveMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        //Formula to calculate ticks per centimeter for the current drive set up.FORWARDS/BACKWARD ONLY
+        double ticksPerCm = (ticksPerRevNR40 * gearRatio) / wheelCircumference;
         double targetDistanceTicks = Math.abs(targetDistance * ticksPerCm);
         double currentDistanceTicks = 0;
         while ((Math.abs(currentDistanceTicks) < targetDistanceTicks) && opModeIsActive()) {
