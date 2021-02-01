@@ -13,14 +13,13 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @Autonomous(name="DemoAuto", group = "Demo")
 public class DemoAuto extends LinearOpMode {
 //Here we are declaring the motors and sensors
-
     private DcMotor frontRight;
     private DcMotor frontLeft;
     private DcMotor backRight;
     private DcMotor backLeft;
    // private DigitalChannel touch;
 
-    //Here we are giving "backing" to the declaration
+    //Here we are giving "backing" to the declaration!!
 //LOL
     public void intihardware() {
         frontRight = hardwareMap.dcMotor.get("fr");
@@ -225,7 +224,8 @@ public class DemoAuto extends LinearOpMode {
         }
         stopMotors();
     }
-public void stopMotors(){
+//Here the motors are stopping
+    public void stopMotors(){
         frontLeft.setPower(0);
         frontRight.setPower(0);
         backLeft.setPower(0);
